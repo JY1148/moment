@@ -1,0 +1,332 @@
+body{
+    background-color: #fafbfa;
+    display: grid;
+    grid-template-rows: 1fr 0.2fr 100% 0.2fr;
+    grid-template-areas: 
+        "header"
+        "em"
+        "main"
+        "footer";
+    font-family: Verdana, Tahoma, "Trebuchet MS", "DejuVu Sans", "Bitstream Vera Sans", sans-serif;
+    margin: 0;
+}
+/*---------header part---------*/
+header{
+    grid-area:header;
+    display: grid;
+    grid-template-rows: 2.5rem 5rem 5rem;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: 
+    "logo header"
+    "logo header"
+    "logo menubar";
+}
+header ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+/*1.1 logo part*/
+header .logo{
+    grid-area:logo;
+
+    width: 10rem;
+    height: 10rem;
+    place-self: center;
+    margin-right: 10rem;
+}
+/*1.2 title part*/
+.title {
+    grid-area: header;
+    color: #b0e798;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: Verdana, Tahoma, "Trebuchet MS", "DejuVu Sans", "Bitstream Vera Sans", sans-serif;
+    margin: 0;
+    align-self: flex-end;
+}
+.title >span{
+    color: #b8b152;
+}
+/*1.3 menu part*/
+.menubar > ul{
+    display:flex;
+    flex-direction: row;
+    font-size: larger;
+}
+.menu > li{
+    padding-right: 1rem;
+    position: relative;
+}
+/*1.3.1 submenu part*/
+.submenu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left:0;
+    top: 2rem;
+    
+    max-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    background-color: #b0e798;
+    transition: max-height 3s;
+}
+/*1.3.1 button part*/
+.menu button{
+    background-color: #b0e798;
+    border: 0;
+    font: inherit;
+    color:#270f18;
+}
+.menu a{
+    text-decoration: none;
+}
+.submenu a{
+    display: inline-block;
+    width:  100%;
+    padding: 0.25rem 0.5rem;
+    text-decoration:none;
+    color:#270f18;
+}
+.submenu a:hover{
+    background-color: #b8b152;
+    color: #fafbfa;
+    max-height: 90vh;
+    text-decoration: underline;
+}
+.menu > li:focus-within .submenu,
+.menu > li:hover .submenu{
+    text-decoration: underline;
+    max-height: 90vh;
+    width: max-content;
+    visibility: visible; 
+}
+/*1.1.header media*/
+@media (min-device-width:600px) and (max-device-width:1200px){
+    header{
+        grid-area:header;
+        display: grid;
+        grid-template-rows: 5rem 5rem;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: 
+        " logo header"
+        " logo menubar";
+    }
+    header .logo{
+        margin-right: 3rem;
+    }
+}
+@media (max-device-width:600px){
+    header{
+        grid-area:header;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: 
+        "logo menubar"
+        
+    }
+    
+    header .logo{
+        width: 100px;
+        height: 100px;
+        align-self: center;
+        margin-right:0;
+    }
+    .title {
+        display: none;
+    }
+    .menu button{
+        background-color: #fafbfa;
+    }
+    .submenu li a span{
+        display: none;
+    }
+    .submenu{
+        display: flex;
+        flex-direction: row;
+    }
+    .submenu a:hover{
+        background-color: #b0e798;
+        text-decoration: underline;
+    }
+    .menu button a span{
+        display: none;
+    }
+    .menu{
+        justify-content: space-around;
+    }
+    .menubar{
+        align-self: center;
+        justify-self: stretch;
+    }
+    
+}
+/*---------body part---------*/
+
+/*1.main*/
+main{
+    grid-area:main;
+
+    background-color: #b0e798;
+    
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    
+    padding:2rem;
+
+    display: grid;
+
+    font-family: sans-serif;
+}
+/*2.formbody*/
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    
+}
+.formtitle{
+    color: #484b52;
+    padding: 0;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 900;
+    place-self: center;
+}
+.form{
+    place-self: center;
+}
+/*2.1 likes*/
+.likes{
+    display: flex;
+    flex-direction: column;
+
+    place-self: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+select{
+    max-width: 40rem;
+    width: 100%;
+    height: 70%;
+    padding: 0.8rem 1rem;
+
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+/*2.2 names*/
+.name{
+    display: flex;
+    flex-direction: column;
+
+    place-self: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#name{
+    max-width: 40rem;
+    width: 100%;
+    height: 70%;
+    padding: 0.8rem 1rem;
+
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+/*2.3 comment*/
+.comment{
+    display: flex;
+    flex-direction: column;
+
+    place-self: left;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    /* font-size: 2rem;
+    font-style: normal;
+    font-weight: 900; */
+}
+textarea {
+    max-width: 40rem;
+    width: 100%;
+    height: 9.5rem;
+    padding: 0.8rem 1rem;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-family: sans-serif;
+}
+/*2.4 privacy*/
+.privacy{
+    display: flex;
+    flex-direction: column;
+}
+.privacy p{
+    margin: 0;
+}
+.privacy div{
+    
+    height: 2rem;
+    justify-content: center;
+}
+.checkboxchoice:active{
+    background-color: #484b52;
+}
+.checkboxchoice{
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+}
+/*2.5 button*/
+.button{
+    max-width: 40rem;
+
+    width: 100%;
+    background-color: #484b52; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 0.75rem;
+}
+/*footer part*/
+
+footer{
+    grid-area:footer;
+
+    background-color: #ffffff;
+    font-size: smaller;
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    
+}
+footer > ul{
+    margin-top: 0;
+    margin-bottom: 0;
+
+    align-self: center;
+}
+footer .logo{
+    width: 3rem;
+    height: 3rem;
+
+    place-self: center;  
+}
+footer .contact{
+    width: 12rem;
+    height: 3rem;
+    padding-left: 0;
+
+    align-self: center;
+}
+

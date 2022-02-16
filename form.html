@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./form.css" />
+</head>
+
+
+<body>
+    <div id="homepage">
+      <header>        
+        <nav class="menubar">
+          <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="new.html">New</a></li>
+            <li><a href="search.html">Search</a></li>
+          </ul>
+        </nav>
+      </header>
+      <nav class="local-menu">
+        <ul>
+          <li><a href="stuff.html" class="selected">basic information(1/3)</a></li>
+          <li><a href="other.html" class="unselected">other information(2/3)</a></li>
+          <li><a href="clickbait.html"class="unselected">confirmation(3/3)</a></li>
+        </ul>
+      </nav>
+      <main class="formbody">
+        <h1 class="title">A Form for you to fill in</h1>
+    
+        <form class="form" action="http://google.com" method="post"> 
+            <div class="name">
+                <label for="name">name<span class="redstar">*</span></label>
+                <input type="name" id="name" name="name" placeholder="Your Name" required>
+            </div>
+    
+            <div class="email">
+                <label for="email">email<span class="redstar">*</span></label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            </div>
+    
+            <div class="annoy_me">
+                <p>Do you want us to send you annoying emails?</p>
+                <input type="checkbox" id="annoy_me_sqr" name="annoy_me">
+                <label class="checkboxchoice" id="annoy_me" for="annoy_me">annoy_me!</label>
+    
+            </div>
+            
+            <div class="tier">
+            <label for="tier-select">Choose a tier:<span class="redstar">*</span></label>
+            <select name="tier" id="tier-select" required>
+                <option value="">--Please select--</option>
+                <option value="1">Silver Tier</option>
+                <option value="2">Gold Tier</option>
+                <option value="3">Platinum Tier</option>
+            </select>
+            </div>
+    
+            <br><br>
+            <button class="button" type="submit">Submit!</button>
+        </form>
+    </main>
+
+    </div>
+  </body>
+</html>

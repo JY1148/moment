@@ -1,0 +1,207 @@
+body{
+    background-color: #fafbfa;
+    display: grid;
+    grid-template-rows: 1fr 0.2fr 5fr 0.2fr;
+    grid-template-areas: 
+        "header"
+        "em"
+        "main"
+        "footer";
+    font-family: Verdana, Tahoma, "Trebuchet MS", "DejuVu Sans", "Bitstream Vera Sans", sans-serif;
+    margin: 0;
+}
+
+header{
+    grid-area:header;
+    display: grid;
+    grid-template-rows: 2.5rem 5rem 5rem;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+    "logo header"
+    "logo header"
+    "logo menubar";
+}
+
+header ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+header .logo{
+    grid-area:logo;
+
+    width: 10rem;
+    height: 10rem;
+    place-self: center;
+    margin-right: 15rem;
+}
+
+.title {
+    grid-area: header;
+
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: Verdana, Tahoma, "Trebuchet MS", "DejuVu Sans", "Bitstream Vera Sans", sans-serif;
+    margin: 0;
+    align-self: flex-end;
+}
+
+.title >span{
+    color:#df3a25;
+}
+
+.menubar > ul{
+    display:flex;
+    flex-direction: row;
+    font-size: larger;
+}
+
+.menu > li{
+    padding-right: 1rem;
+    position: relative;
+}
+
+.submenu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left:0;
+    top: 1.5rem;
+
+    max-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    background-color: #f8d054;
+    transition: max-height 3s;
+}
+
+.menu button{
+    background-color: #f8d054;
+    border: 0;
+    font: inherit;
+}
+
+.submenu a{
+    display: inline-block;
+    width:  100%;
+    padding: 0.25rem 0.5rem;
+    text-decoration:none;
+    color:black;
+}
+
+.submenu a:hover{
+    background-color: #fafbfa;
+    color: #de3926;
+    max-height: 90vh;
+    text-decoration: underline;
+}
+
+.menu > li:focus-within .submenu,
+.menu > li:hover .submenu{
+    text-decoration: underline;
+    max-height: 90vh;
+    width: max-content;
+    visibility: visible; 
+}
+
+.localnav{
+    grid-area:localnav;
+    padding: 0.5rem;
+    background-color: #f8d054;
+}
+
+.localnav li{
+    padding: 0.25rem 0;
+}
+
+.localnav ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+main{
+    grid-area:main;
+
+    background-color: #f8d054;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding:2rem;
+
+    display: grid;
+    grid-template-rows: 4rem 3rem 6rem 20rem;
+    grid-template-areas: 
+    "first"
+    "second"
+    "third"
+    "fourth";
+}
+
+.first{
+    grid-area: first;
+
+    place-self: left;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.second{
+    grid-area: second;
+
+    place-self: left;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.third{
+    grid-area: third;
+
+    place-self: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.fourth{
+    grid-area: fourth;
+}
+
+footer{
+    grid-area:footer;
+
+    background-color: #ffffff;
+    font-size: smaller;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+}
+
+footer > ul{
+    margin-top: 0;
+    margin-bottom: 0;
+
+    align-self: center;
+}
+
+footer .logo{
+    width: 3rem;
+    height: 3rem;
+
+    place-self: center;  
+}
+
+footer .contact{
+    width: 12rem;
+    height: 3rem;
+    padding-left: 0;
+
+    align-self: center;
+}
